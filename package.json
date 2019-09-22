@@ -1,0 +1,29 @@
+{
+  "name": "praktikum_modules",
+  "version": "1.0.0",
+  "description": "<h1>Проектная работа 11</h1> <p>Описание: этот проект необходим для тренировки сборки проекта</p> <p>Версия: 0.0.1</p> <p>Технологии: в проекте используются JS, CSS, HTML</p> <p>Ссылка на страницу проекта: <a href=\"https://github.com/vadagama/praktikum_modules\">https://github.com/vadagama/praktikum_modules</a></p>",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadagama/praktikum_modules.git"
+  },
+  "keywords": [
+    "html",
+    "js",
+    "git",
+    "webpack"
+  ],
+  "author": "Oleg Krasnov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vadagama/praktikum_modules/issues"
+  },
+  "homepage": "https://github.com/vadagama/praktikum_modules#readme",
+  "devDependencies": {
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
