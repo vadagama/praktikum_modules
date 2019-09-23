@@ -1,5 +1,9 @@
 import "./index.css"
+/* import Api from "./modules/api.js" */
+/* import CardList from "./modules/cardlist.js" */
+/* import {handleValidate, validate} from "./modules/utils.js" */
 
+const NODE_ENV = '';
 const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2'
 
 class Api {
@@ -104,8 +108,45 @@ const CARD_PLACE = document.querySelector('.places-list');
 
 const api = new Api(CONFIG);
 
-
 /* Классы */
+
+class CardList {
+  constructor(container, array) {
+    this.container = container;
+    this.array = array;
+    this.render()
+    this.renderCards = this.renderCards.bind(this);
+    api.getCards(this.renderCards)
+  }
+
+  renderCards(array) {
+    if (array) {
+      array.forEach(function (item) {
+        this.addCard(item);
+      }, this);
+    }
+  }
+
+  addCard(item) {
+    const card = new Card(item);
+    this.container.appendChild(card.cardElement);
+    this.container.querySelectorAll('.place-card');
+    const popup = document.querySelector('.popup');
+    popup.classList.remove('popup_is-opened');
+    const openPopupButton = document.querySelector('.popup__button');
+    openPopupButton.setAttribute('disabled', true);
+    openPopupButton.classList.add('popup__button_disabled');
+  }
+
+  render() {
+    if (this.array) {
+      this.array.forEach(function (item) {
+        this.addCard(item);
+      }, this);
+    }
+  }
+
+}
 
 class Card {
   constructor(item) {
@@ -169,45 +210,6 @@ class Card {
     event.target.classList.toggle('place-card__like-icon_liked');
 
   }
-}
-
-class CardList {
-  constructor(container, array) {
-    this.container = container;
-    this.array = array;
-    this.render()
-    this.renderCards = this.renderCards.bind(this);
-    api.getCards(this.renderCards)
-  }
-
-  renderCards(array) {
-    if (array) {
-      array.forEach(function (item) {
-        this.addCard(item);
-      }, this);
-    }
-  }
-
-
-  addCard(item) {
-    const card = new Card(item);
-    this.container.appendChild(card.cardElement);
-    this.container.querySelectorAll('.place-card');
-    const popup = document.querySelector('.popup');
-    popup.classList.remove('popup_is-opened');
-    const openPopupButton = document.querySelector('.popup__button');
-    openPopupButton.setAttribute('disabled', true);
-    openPopupButton.classList.add('popup__button_disabled');
-  }
-
-  render() {
-    if (this.array) {
-      this.array.forEach(function (item) {
-        this.addCard(item);
-      }, this);
-    }
-  }
-
 }
 
 class Popup {
@@ -296,7 +298,6 @@ function renderProfile(element) {
   popup.classList.remove('popup_is-opened');
 }
 
-
 /*  Валидация форм */
 
 function handleValidate(event) {
@@ -307,23 +308,23 @@ function handleValidate(event) {
 function validate(element) {
   const errorElement = document.querySelector(`#error-${element.id}`);
   if (!element.checkValidity()) {
-    errorElement.textContent = element.validationMessage;
-    activateError(errorElement);
-    errorElement.textContent = 'Это обязательное поле!';
-    openProfileButton.setAttribute('disabled', true);
-    openProfileButton.classList.add('popup__button_disabled');
-    return false
+      errorElement.textContent = element.validationMessage;
+      activateError(errorElement);
+      errorElement.textContent = 'Это обязательное поле!';
+      openProfileButton.setAttribute('disabled', true);
+      openProfileButton.classList.add('popup__button_disabled');
+      return false
   } else if ((element.value.length < 2) || (element.value.length > 30)) {
-    errorElement.textContent = element.validationMessage;
-    activateError(errorElement);
-    const errorMessage = 'Должно быть от 2 до 30 символов!';
-    errorElement.textContent = errorMessage;
-    openProfileButton.setAttribute('disabled', true);
-    openProfileButton.classList.add('popup__button_disabled');
-    return false
+      errorElement.textContent = element.validationMessage;
+      activateError(errorElement);
+      const errorMessage = 'Должно быть от 2 до 30 символов!';
+      errorElement.textContent = errorMessage;
+      openProfileButton.setAttribute('disabled', true);
+      openProfileButton.classList.add('popup__button_disabled');
+      return false
   } else {
-    resetError(errorElement);
-    return false
+      resetError(errorElement);
+      return false
   }
 }
 
