@@ -1,5 +1,7 @@
 import "./index.css"
 
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2'
+
 class Api {
   constructor(data) {
     this.url = data.baseUrl,
@@ -95,7 +97,7 @@ class Api {
 }
 
 const CONFIG = {
-  baseUrl: 'http://95.216.175.5/cohort2',
+  baseUrl: serverUrl,
   token: '7d5e7e3f-04b5-4500-97a5-c163428b8ef3'
 };
 const CARD_PLACE = document.querySelector('.places-list');

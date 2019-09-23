@@ -4,8 +4,9 @@
   "description": "<h1>Проектная работа 11</h1> <p>Описание: этот проект необходим для тренировки сборки проекта</p> <p>Версия: 0.0.1</p> <p>Технологии: в проекте используются JS, CSS, HTML</p> <p>Ссылка на страницу проекта: <a href=\"https://github.com/vadagama/praktikum_modules\">https://github.com/vadagama/praktikum_modules</a></p>",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --watch"
+    "build": "NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "NODE_ENV=production gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/vadagama/praktikum_modules/issues"
   },
-  "homepage": "https://github.com/vadagama/praktikum_modules#readme",
+  "homepage": "https://vadagama.github.io/praktikum_modules/",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
@@ -32,11 +33,13 @@
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
     "file-loader": "^4.2.0",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "~2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
