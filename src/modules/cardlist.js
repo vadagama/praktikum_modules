@@ -1,5 +1,7 @@
+import Card from './card.js'
+
 export default class CardList {
-    constructor(container, array) {
+    constructor(api, container, array) {
       this.container = container;
       this.array = array;
       this.render()

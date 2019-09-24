@@ -1,11 +1,9 @@
-/*  Валидация форм */
-
-export function handleValidate(event) {
+export default function handleValidate(event) {
     resetError(event.target);
     validate(event.target);
 }
 
-export function validate(element) {
+export default function validate(element) {
     const errorElement = document.querySelector(`#error-${element.id}`);
     if (!element.checkValidity()) {
         errorElement.textContent = element.validationMessage;
@@ -28,11 +26,11 @@ export function validate(element) {
     }
 }
 
-export function activateError(element) {
+function activateError(element) {
     element.parentNode.classList.add('input-container__invalid');
 }
 
-export function resetError(element) {
+function resetError(element) {
     element.parentNode.classList.remove('input-container__invalid');
     element.textContent = '';
 }
