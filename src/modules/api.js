@@ -47,7 +47,6 @@ export default class Api {
           return this.getResponseData(res)
         })
         .then((cards) => {
-          console.log(cards);
         })
         .catch(err => console.log(err));
     }

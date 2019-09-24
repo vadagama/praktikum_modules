@@ -2,7 +2,7 @@ import "./index.css"
 import Api from "./modules/api.js"
 import CardList from "./modules/cardlist.js"
 import Popup from "./modules/popup.js"
-import handleValidate from "./modules/utils.js"
+import {handleValidate} from "./modules/utils.js"
 /* import {handleValidate, validate} from "./modules/utils.js" */
 
 const NODE_ENV = '';
@@ -15,19 +15,10 @@ const CONFIG = {
 const CARD_PLACE = document.querySelector('.places-list');
 const api = new Api(CONFIG);
 
-/* Классы */
-
-
-
-/* Определение переменных */
-
-
-
 const cardList = new CardList(api,CARD_PLACE, '');
 const newCardPopup = new Popup(document.querySelector('.popup_create-card'));
 const editProfilePopup = new Popup(document.querySelector('.popup_edit-profile'));
 const openPhotoPopup = new Popup(document.querySelector('.popup_open-photo'));
-
 const userInfoButton = document.querySelector('.user-info__button');
 const openPopupButton = document.querySelector('.popup__button');
 const closePopupButton = document.querySelector('.popup__close');
@@ -43,7 +34,6 @@ const profile_name = profile_form.elements.profile_name; // получаем и�
 const profile_about = profile_form.elements.profile_about; //получаем доп. информацию
 const photo = document.querySelector('.popup_open-photo');
 const closePhotoButton = photo.querySelector('.popup__close');
-
 
 /* Заполнение полей профиля */
 

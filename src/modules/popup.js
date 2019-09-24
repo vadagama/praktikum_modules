@@ -1,4 +1,4 @@
-import validate from './utils.js'
+import {validate, fillProfile} from './utils.js'
 
 export default class Popup {
     open(element) {
@@ -11,7 +11,7 @@ export default class Popup {
         const profile_name = profile_form.elements.profile_name; // получаем имя
         const profile_about = profile_form.elements.profile_about; //получаем доп. информацию
         popup.classList.add('popup_is-opened');
-        this.fillProfile;
+        fillProfile();
         validate(profile_name);
         validate(profile_about);
       } else if (element.target.classList.value === 'place-card__image') {
@@ -21,15 +21,6 @@ export default class Popup {
         popup.classList.add('popup_is-opened');
         photo.setAttribute('src', url);
       }
-    }
-    fillProfile() {
-        const name_content = document.querySelector('.user-info__name');
-        const about_content = document.querySelector('.user-info__job');
-        const name_target = profile.querySelector('.popup__input_type_name');
-        const about_target = profile.querySelector('.popup__input_type_link-url');
-      
-        name_target.value = name_content.innerHTML;
-        about_target.value = about_content.innerHTML;
     }
     close(element) {
       if ((element.target.id === 'close_card') || (element.id === 'close_card_button')) {

@@ -1,3 +1,4 @@
+import Popup from "./popup.js"
 export default class Card {
     constructor(item) {
       this.name = item.name;
@@ -40,6 +41,7 @@ export default class Card {
   
     handleCardEvent(event) {
       const _event = event;
+      const openPhotoPopup = new Popup(document.querySelector('.popup_open-photo'));
   
       if (event.target.classList.contains('place-card__delete-icon')) {
         this.remove(_event);
