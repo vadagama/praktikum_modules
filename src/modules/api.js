@@ -1,3 +1,4 @@
+import { renderProfile } from "../index";
 export default class Api {
     constructor(data) {
       this.url = data.baseUrl,
@@ -30,8 +31,6 @@ export default class Api {
     }
   
     postNewCard(name, link) {
-      console.log(name);
-      console.log(link);
       fetch(`${this.url}/cards`, {
           method: 'POST',
           body: JSON.stringify({

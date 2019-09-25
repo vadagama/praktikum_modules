@@ -51,14 +51,12 @@ function fillProfile() {
 
 api.getUserProfile(renderProfile);
 
-function renderProfile(element) {
+export function renderProfile(element) {
   const name_placeholder = document.querySelector('.user-info__name');
   const about_placeholder = document.querySelector('.user-info__job');
-
   name_placeholder.textContent = element.name;
   about_placeholder.textContent = element.about;
   const popup = document.querySelector('.popup_edit-profile');
-  popup_button = popup.querySelector('.popup__button');
   popup.classList.remove('popup_is-opened');
 }
 
