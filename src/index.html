@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
 
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
@@ -45,7 +45,7 @@
 
     <div class="popup popup_create-card">
       <div class="popup__content">
-        <img id="close_card" src="./images/close.svg" alt="" class="popup__close">
+        <img id="close_card" src="<%=require ('./images/close.svg') %>" alt="" class="popup__close">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new">
           <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
@@ -60,7 +60,7 @@
 
     <div class="popup popup_edit-profile">
       <div class="popup__content">
-        <img id="close_profile" src="./images/close.svg" alt="" class="popup__close">
+        <img id="close_profile" src="<%=require ('./images/close.svg') %>" alt="" class="popup__close">
         <h3 class="popup__title">Редактирование профиля</h3>
         <form class="popup__form" name="profile">
           <input id="profile_name" type="text" required name="profile_name" class="popup__input popup__input_type_name" placeholder="Имя">
@@ -76,12 +76,12 @@
     <div class="popup popup_open-photo">
       <div class="popup_open-photo__content">
         <img class="popup_open-photo__image" src="">
-        <img id="close_photo"src="./images/close.svg" alt="" class="popup__close">
+        <img id="close_photo"src="<%=require ('./images/close.svg') %>" alt="" class="popup__close">
       </div>
     </div>
 
   </div>
-  <script src="script.js"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 
 </html>
