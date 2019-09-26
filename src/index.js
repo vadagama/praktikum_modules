@@ -3,10 +3,8 @@ import Api from "./modules/api.js"
 import CardList from "./modules/cardlist.js"
 import Popup from "./modules/popup.js"
 import {handleValidate} from "./modules/utils.js"
-/* import {handleValidate, validate} from "./modules/utils.js" */
 
-const NODE_ENV = '';
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2'
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
 
 const CONFIG = {
   baseUrl: serverUrl,

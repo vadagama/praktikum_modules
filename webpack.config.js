@@ -6,10 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добави
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 
-new webpack.DefinePlugin({
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-});
-
 module.exports = {
     entry: { main: './src/index.js' },
     output: {
@@ -53,6 +49,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        }),
         new MiniCssExtractPlugin({ // 
             filename: 'style.[contenthash].css',
         }),
