@@ -7,13 +7,13 @@ export default class Popup {
         popup.classList.add('popup_is-opened');
       } else if (element.target.id === 'open_profile') {
         const popup = document.querySelector('.popup_edit-profile');
-        const profile_form = document.forms.profile; // получаем форму профиля
-        const profile_name = profile_form.elements.profile_name; // получаем имя
-        const profile_about = profile_form.elements.profile_about; //получаем доп. информацию
+        const profileForm = document.forms.profile; // получаем форму профиля
+        const profileName = profileForm.elements.profileName; // получаем имя
+        const profileAbout = profileForm.elements.profileAbout; //получаем доп. информацию
         popup.classList.add('popup_is-opened');
         fillProfile();
-        validate(profile_name);
-        validate(profile_about);
+        validate(profileName);
+        validate(profileAbout);
       } else if (element.target.classList.value === 'place-card__image') {
         const url = element.target.getAttribute('style').slice(22, -1);
         const popup = document.querySelector('.popup_open-photo');

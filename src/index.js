@@ -27,22 +27,22 @@ const userProfileButton = document.querySelector('.user-info__edit');
 const profile = document.querySelector('.popup_edit-profile');
 const openProfileButton = profile.querySelector('.popup__button');
 const closeProfileButton = profile.querySelector('.popup__close');
-const profile_form = document.forms.profile; // получаем форму профиля
-const profile_name = profile_form.elements.profile_name; // получаем имя
-const profile_about = profile_form.elements.profile_about; //получаем доп. информацию
+const profileForm = document.forms.profile; // получаем форму профиля
+const profileName = profileForm.elements.profileName; // получаем имя
+const profileAbout = profileForm.elements.profileAbout; //получаем доп. информацию
 const photo = document.querySelector('.popup_open-photo');
 const closePhotoButton = photo.querySelector('.popup__close');
 
 /* Заполнение полей профиля */
 
 function fillProfile() {
-  const name_content = document.querySelector('.user-info__name');
-  const about_content = document.querySelector('.user-info__job');
-  const name_target = profile.querySelector('.popup__input_type_name');
-  const about_target = profile.querySelector('.popup__input_type_link-url');
+  const nameContent = document.querySelector('.user-info__name');
+  const aboutContent = document.querySelector('.user-info__job');
+  const nameTarget = profile.querySelector('.popup__input_type_name');
+  const aboutTarget = profile.querySelector('.popup__input_type_link-url');
 
-  name_target.value = name_content.innerHTML;
-  about_target.value = about_content.innerHTML;
+  nameTarget.value = nameContent.innerHTML;
+  aboutTarget.value = aboutContent.innerHTML;
 }
 
 /* Рендер профиля */
@@ -50,10 +50,10 @@ function fillProfile() {
 api.getUserProfile(renderProfile);
 
 export function renderProfile(element) {
-  const name_placeholder = document.querySelector('.user-info__name');
-  const about_placeholder = document.querySelector('.user-info__job');
-  name_placeholder.textContent = element.name;
-  about_placeholder.textContent = element.about;
+  const namePlaceholder = document.querySelector('.user-info__name');
+  const aboutPlaceholder = document.querySelector('.user-info__job');
+  namePlaceholder.textContent = element.name;
+  aboutPlaceholder.textContent = element.about;
   const popup = document.querySelector('.popup_edit-profile');
   popup.classList.remove('popup_is-opened');
 }
@@ -83,9 +83,9 @@ form.addEventListener('submit', function (event) {
 });
 
 // Обработчик события ввода значений в форму
-profile_form.addEventListener('input', function () {
+profileForm.addEventListener('input', function () {
 
-  if (profile_name.value.length === 0 || profile_about.value.length === 0) {
+  if (profileName.value.length === 0 || profileAbout.value.length === 0) {
     openProfileButton.setAttribute('disabled', true);
     openProfileButton.classList.add('popup__button_disabled');
   } else {
@@ -94,16 +94,16 @@ profile_form.addEventListener('input', function () {
   }
 });
 
-profile_form.addEventListener('submit', function () {
+profileForm.addEventListener('submit', function () {
   api.editUserProfile({
-    name: event.currentTarget.profile_name.value,
-    about: event.currentTarget.profile_about.value
+    name: event.currentTarget.profileName.value,
+    about: event.currentTarget.profileAbout.value
   });
   renderProfile(profile);
   event.preventDefault();
 });
 
-profile_form.addEventListener('input', handleValidate);
+profileForm.addEventListener('input', handleValidate);
 userInfoButton.addEventListener('click', newCardPopup.open);
 closePopupButton.addEventListener('click', newCardPopup.close);
 closePhotoButton.addEventListener('click', openPhotoPopup.close);

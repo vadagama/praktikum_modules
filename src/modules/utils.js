@@ -37,12 +37,12 @@ function resetError(element) {
 }
 
 export function fillProfile() {
-    const name_content = document.querySelector('.user-info__name');
-    const about_content = document.querySelector('.user-info__job');
+    const nameContent = document.querySelector('.user-info__name');
+    const aboutContent = document.querySelector('.user-info__job');
     const profile = document.querySelector('.popup_edit-profile');
-    const name_target = profile.querySelector('.popup__input_type_name');
-    const about_target = profile.querySelector('.popup__input_type_link-url');
+    const nameTarget = profile.querySelector('.popup__input_type_name');
+    const aboutTarget = profile.querySelector('.popup__input_type_link-url');
   
-    name_target.value = name_content.innerHTML;
-    about_target.value = about_content.innerHTML;
+    nameTarget.value = nameContent.innerHTML;
+    aboutTarget.value = aboutContent.innerHTML;
   }
